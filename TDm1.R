@@ -1,0 +1,85 @@
+# Exercice 1
+
+A <- matrix(c(4,5,6), nrow = 3, ncol = 3, byrow = TRUE)
+B <- rbind(A,c(4,5,6))
+dim(B)
+
+# Exercice 2
+
+A <- c(1,4,5)
+Mat <- matrix(1, nrow=3, ncol=4)
+l1 <- list(A,Mat)
+L <- list(Vecteur=A, Matrice=Mat, Liste=l1)
+
+# Exercice 3
+
+Mat <- matrix(1:9, nrow = 3, ncol = 3)
+eigen(Mat)$vectors[,which.max(eigen(Mat)$values)]
+
+# Exercice 4
+
+cathedral <- read.table(file="cathedral.txt", header = TRUE, sep = "\t", row.names = 1)
+
+# Exercice 5
+
+A <- matrix(c(4,5,6), nrow = 3, ncol = 3, byrow = TRUE)
+B <- rbind(A,c(4,5,6))
+B%*%A
+A%*%B
+A%*%t(B)
+
+# Exercice 6
+
+A <- matrix(c(4,5,6), nrow = 3, ncol = 3, byrow = TRUE)
+sum(A)
+sum(A[,1])
+max(A[2,])
+
+# Exercice 7
+
+x <- choose(6,0:6)
+sum(x)
+max(x)
+which.max(x)
+sort(x)
+
+# Exercice 8
+
+source("ScriptDeMaFonction.R")
+
+x <- 18
+y <- 7
+A <- matrix(c(4,5,6), nrow = 3, ncol = 3, byrow = TRUE)
+
+Mafonction(x,y,A)
+
+# Exercice 9
+
+ma.variance <- function(x)
+{
+n = length(x)
+mx = (1/n)*(sum(x))
+var = (1/(n-1))*sum((x-mx)^2)
+return(var)
+}
+
+x = c(1,2,3,4,5,6,7,8,9)
+
+ma.variance(x)
+var(x)
+
+# Exercice 10
+
+compte <- function(sequence, lettre)
+{
+compt <- 0
+for (i in sequence){
+    if (i==lettre){compt = compt + 1}
+  }
+return(compt)
+}
+
+sequence <- c("a","a","t","g","a","g","c","t","a","g","c","t","g")
+compte(sequence,"a")
+
+for (i in c("a","c","t","g")) {print(compte(sequence,i))}
